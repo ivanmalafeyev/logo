@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,regular,500,700,900&display=swap&subset=cyrillic-ext");
+@import url("https://fonts.googleapis.com/css?family=Play:700&display=swap&subset=cyrillic-ext");
+
+$fontfamily: Roboto;
+$minwidth: 320px;
+$maxwidth: 1400px;
+$mw: 1180;
+$md1: $mw + 12;
+$md2: 979;
+// $md2: 767.98;
+$md3: 768;
+$md4: 320;
+
+$oc: #f68038;
+$bc: #1ab9ce;
+
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"),
+      url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+@import "fonts.scss";
+@import "null.scss";
+
+body {
+  &._lock {
+    overflow: hidden;
+    @media (max-width: $md3+px) {
+      width: 100%;
+      // position: fixed;
+    }
+  }
+}
+.wrapper {
+  &.loaded {
+  }
+}
+._container {
+  max-width: $mw + px;
+  margin: 0 auto;
+  // width: 100%;
+  // @media (max-width: $md1+px) {
+  //   $mw: 979;
+  //   max-width: $mw + px;
+  // }
+  // @media (max-width: $md2+px) {
+  //   $mw: 748;
+  //   max-width: $mw + px;
+  // }
+  // @media (max-width: $md3+px) {
+  //   max-width: none;
+  //   padding: 0 10px;
+  // }
+  padding: 0px 20px;
+  @media (max-width: $md3+px) {
+    padding: 0px 10px;
+  }
+}
+
+@import "header.scss";
+
+// Основной блок
+// =============================================================
+// =============================================================
+// =============================================================
+// =============================================================
+// =============================================================
+// =============================================================
+// =============================================================
+// =============================================================
+// =============================================================
+
+// Конец основного блока
+@import "footer.scss";
+//
+._ibg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  img {
+    display: none;
+  }
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.input {
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 0 !important;
+  width: 100%;
+  // border: 1px solid #ffffff;
+  // height: 48px;
+
+  display: block;
+  &:focus {
+  }
+  &._err {
+    //
+    border-color: red;
+    //
+  }
+}
+textarea.input {
+  resize: none;
+  overflow: auto;
+  // height: 151px;
+}
+.btn {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  padding: 0px 33px;
+  font-size: 19px;
+  // font-family: Arial;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background-color: black;
+  color: white !important;
+  &--w {
+    background-color: white;
+    color: black !important;
+  }
+}
+
+// Slick Slider start
+.slick-slider {
+  position: relative;
+  .slick-track,
+  .slick-list {
+  }
+  .slick-list {
+    overflow: hidden;
+  }
+  .slick-track {
+    @include flexbox();
+    align-items: flex-start;
+  }
+  .slick-slide {
+  }
+  .slick-dots {
+    // padding: 110px 0 0 0;
+    padding: 10px 0 0 0;
+    @media (max-width: $md1+px) {
+      // padding: 80px 0 0 0;
+      padding: 0;
+    }
+    @media (max-width: $md2+px) {
+      // padding: 40px 0 0 0;
+    }
+    @include flexbox();
+    justify-content: center;
+    align-items: center;
+    li {
+      margin: 0 9px;
+      button {
+        font-size: 0;
+        width: 11px;
+        height: 11px;
+        border: 1px solid #222;
+        border-radius: 50%;
+        background-color: transparent;
+        @media (max-width: $md4+px) {
+          width: 9px;
+          height: 9px;
+        }
+      }
+      &.slick-active {
+        button {
+          background-color: #222;
+        }
+      }
+    }
+  }
+}
+// Slick Slider end
