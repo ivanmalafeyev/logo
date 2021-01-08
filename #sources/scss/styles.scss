@@ -38,6 +38,7 @@ body {
   }
 }
 .wrapper {
+  position: relative;
   &.loaded {
   }
 }
@@ -66,6 +67,266 @@ body {
 @import "header.scss";
 
 // Основной блок
+.page {
+  padding: 160px 0px 0px 0px;
+  flex: 1 1 auto;
+
+  // .page__container
+  &__container {
+    @include flexbox();
+  }
+
+  // .page__side
+  &__side {
+    flex: 0 0 260px;
+    max-width: 260px;
+  }
+
+  // .page__menu
+  &__menu {
+  }
+
+  // .page__content
+  &__content {
+    flex: 1 1 auto;
+    padding: 0px 0px 0px 30px;
+  }
+}
+.menu-page {
+  background: url("../img/tbg.svg") 0 center/cover;
+  position: relative;
+  // .menu-page__header
+  &__header {
+    padding: 21px 21px 0px 21px;
+    @include flexbox();
+    align-items: center;
+  }
+
+  // .menu-page__title
+  &__title {
+    color: #ffffff;
+    font-family: "ush";
+    font-size: 30px;
+    line-height: (36 / 30);
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+  }
+
+  // .menu-page__burger
+  &__burger {
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    background-color: #068292;
+    padding: 10px 6px;
+  }
+
+  &__lines {
+    position: relative;
+    height: 100%;
+    cursor: pointer;
+    span {
+      @include anim(0.3s, 0s);
+      top: calc(50% - 1px);
+      left: 0px;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      &:first-child {
+        top: 0px;
+      }
+      &:last-child {
+        top: auto;
+        bottom: 0px;
+      }
+    }
+    &._active {
+      span {
+        @include scale(0);
+        &:first-child {
+          @include rotate(-45deg);
+          top: 8px;
+        }
+        &:last-child {
+          @include rotate(45deg);
+          bottom: 8px;
+        }
+      }
+    }
+  }
+
+  // .menu-page__body
+  &__body {
+  }
+
+  // .menu-page__list
+  &__list {
+    padding: 6px 0px;
+    li {
+      border-bottom: 1px solid #1aa7b9;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  // .menu-page__link
+  &__link {
+    display: block;
+    padding: 15px 0px 15px 22px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 300;
+    text-align: left;
+    position: relative;
+    // .menu-page__link--parent
+    &--parent {
+      &:after {
+        content: "";
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        width: 14px;
+        height: 14px;
+        @include tr(0, -50%, 0);
+        background: url("../img/right_arr.png") 0 0 no-repeat;
+      }
+    }
+    @media (min-width: $md2+px) {
+      &:hover {
+        background-color: $bc;
+      }
+    }
+  }
+
+  // .menu-page__submenu
+  &__submenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    height: 100%;
+    width: 280px;
+  }
+}
+
+.submenu-page {
+  background-color: white;
+  border: 2px solid #098494;
+  // .submenu-page__item
+  &__item {
+    text-align: left;
+  }
+
+  // .submenu-page__menu
+  &__menu {
+    padding: 20px 0px;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 99%;
+      height: 1px;
+      background-color: #dedede;
+    }
+    li {
+    }
+  }
+
+  // .submenu-page__link
+  &__link {
+    display: block;
+    padding: 0px 40px;
+    color: $bc;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 36px;
+    letter-spacing: 0.3px;
+    @media (min-width: $md2+px) {
+      &:hover {
+        color: #ffffff;
+        background-color: #71c7d3;
+      }
+    }
+  }
+
+  // .submenu-page__product
+  &__product {
+  }
+}
+.item-product {
+  padding: 10px 25px;
+  // .item-product__labels
+  &__labels {
+  }
+
+  // .item-product__label
+  &__label {
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 6px 14px 3px;
+    display: inline-block;
+    background-color: #fd8424;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 900;
+    // line-height: 24px;
+    text-transform: uppercase;
+  }
+
+  // .item-product__image
+  &__image {
+  }
+
+  // .item-product__description
+  &__description {
+    color: #36949f;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+  }
+
+  // .item-product__name
+  &__name {
+    @extend .item-product__description;
+  }
+
+  // .item-product__footer
+  &__footer {
+    margin: 15px 0px 0px 0px;
+  }
+
+  // .item-product__old-price
+  &__old-price {
+    color: #999999;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 24px;
+    text-decoration: line-through;
+    text-align: right;
+  }
+
+  // .item-product__bottom
+  &__bottom {
+    @include flexbox();
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  // .item-product__add
+  &__add {
+  }
+
+  // .item-product__price
+  &__price {
+    color: #333333;
+    font-size: 24px;
+    font-weight: 900;
+  }
+}
 // =============================================================
 // =============================================================
 // =============================================================
@@ -79,6 +340,13 @@ body {
 // Конец основного блока
 @import "footer.scss";
 //
+
+.rub {
+  &:after {
+    content: "₽";
+  }
+}
+
 ._ibg {
   background-size: cover;
   background-position: center;
