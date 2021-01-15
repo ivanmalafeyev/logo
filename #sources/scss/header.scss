@@ -156,6 +156,9 @@
     justify-content: space-between;
     align-items: center;
     height: 63px;
+    @media (max-width: 640px) {
+      display: none;
+    }
   }
 
   // .bottom-header__column

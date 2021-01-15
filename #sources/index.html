@@ -7,6 +7,10 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
     <title>Logo</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./css/styles.min.css" />
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
     <!-- [if lt IE9]>
@@ -346,12 +350,76 @@
                 </ul>
               </div>
             </nav>
+            <div class="page__side-content">
+              <div class="page__side-news news-side">
+                <a href="#" class="news-side__title side-title">Новости</a>
+                <div class="news-side__items">
+                  <div class="news-side__item">
+                    <a href="#" class="news-side__issue">
+                      Снижение цен на игровые площадки Jungle Gym
+                    </a>
+                    <div class="news-side__body">
+                      <div class="news-side__date"><span>12</span>авг</div>
+                      <div class="news-side__text">
+                        <p>Уважаемые покупатели!</p>
+                        Мы рады сообщить вам о снижении цены с 27 июля на
+                        детский игровой комплекс
+                      </div>
+                    </div>
+                  </div>
+                  <div class="news-side__item">
+                    <a href="#" class="news-side__issue">
+                      Поступление батутов Eclipse!
+                    </a>
+                    <div class="news-side__body">
+                      <div class="news-side__date"><span>19</span>авг</div>
+                      <div class="news-side__text">
+                        <p>Уважаемые покупатели!</p>
+                        Мы рады сообщить вам о снижении цены с 27 июля на
+                        детский игровой комплекс
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="page__side-reviews reviews-side">
+                <a href="#" class="reviews-side__title side-title">Отзывы</a>
+                <div class="reviews-side__items">
+                  <a href="#" class="reviews-side__item">
+                    <div class="reviews-side__header">
+                      <div class="reviews-side__user">Павел Никифоров</div>
+                      <div class="reviews-side__date">12.09.2020</div>
+                    </div>
+                    <div class="reviews-side__body">
+                      Ради экономии места в тренажерном зале приобрел
+                      многофункциональный силовой тренажер Life Gear. За такую
+                      небольшую стоимость и с такими возможностями, он просто не
+                      заменим.
+                    </div>
+                  </a>
+                  <a href="#" class="reviews-side__item">
+                    <div class="reviews-side__header">
+                      <div class="reviews-side__user">Степан Николаевич</div>
+                      <div class="reviews-side__date">12.09.2020</div>
+                    </div>
+                    <div class="reviews-side__body">
+                      Спасибо за прекрасный совет, велосипед всей семье
+                      понравился и цену за него достойную запросили.
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
           </aside>
           <div class="page__content">
             <form action="#" class="page__search search-page">
               <div class="search-page__select">
                 <div class="search-page__title">
-                  <span>Везде</span><span>Выбрано:</span>
+                  <span>Везде</span
+                  ><span
+                    data-text="Выбрано:"
+                    class="search-page__quantity"
+                  ></span>
                 </div>
                 <div class="search-page__categories categories-search">
                   <div class="categories-search__row">
@@ -592,11 +660,194 @@
               </div>
               <button type="submit" class="search-page__btn btn">Найти</button>
             </form>
+            <div class="page__slider mainslider">
+              <div class="mainslider__body swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="mainslider__slide swiper-slide">
+                    <div class="mainslider__content content-mainslider">
+                      <div class="content-mainslider__title">
+                        <span>Мега</span>Распродажа
+                      </div>
+                      <div class="content-mainslider__text text-mainslider">
+                        <p>
+                          <span class="text-mainslider__text1"
+                            >Успей купить</span
+                          >
+                          тренажеры
+                        </p>
+                        <p>
+                          <span class="text-mainslider__text2"
+                            >по старой цене</span
+                          >
+                        </p>
+                        <p>
+                          до их
+                          <span class="text-mainslider__text3">повышения</span>
+                        </p>
+                      </div>
+                      <div class="content-mainslider__footer">
+                        <div class="content-mainslider__price rub">
+                          от 45 000
+                        </div>
+                        <a href="#" class="content-mainslider__button">
+                          <span>Подробнее</span>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="mainslider__image _ibg">
+                      <img src="./img/s_bg.jpg" alt="" />
+                    </div>
+                  </div>
+                  <div class="mainslider__slide swiper-slide">
+                    <div class="mainslider__content content-mainslider">
+                      <div class="content-mainslider__title">
+                        <span>Мега</span>Распродажа
+                      </div>
+                      <div class="content-mainslider__text text-mainslider">
+                        <p>
+                          <span class="text-mainslider__text1"
+                            >Успей купить</span
+                          >
+                          тренажеры
+                        </p>
+                        <p>
+                          <span class="text-mainslider__text2"
+                            >по старой цене</span
+                          >
+                        </p>
+                        <p>
+                          до их
+                          <span class="text-mainslider__text3">повышения</span>
+                        </p>
+                      </div>
+                      <div class="content-mainslider__footer">
+                        <div class="content-mainslider__price rub">
+                          от 45 000
+                        </div>
+                        <a href="#" class="content-mainslider__button">
+                          <span>Подробнее</span>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="mainslider__image _ibg">
+                      <img src="./img/02.jpg" alt="" />
+                    </div>
+                  </div>
+                  <div class="mainslider__slide swiper-slide">
+                    <div class="mainslider__content content-mainslider">
+                      <div class="content-mainslider__title">
+                        <span>Мега</span>Распродажа
+                      </div>
+                      <div class="content-mainslider__text text-mainslider">
+                        <p>
+                          <span class="text-mainslider__text1"
+                            >Успей купить</span
+                          >
+                          тренажеры
+                        </p>
+                        <p>
+                          <span class="text-mainslider__text2"
+                            >по старой цене</span
+                          >
+                        </p>
+                        <p>
+                          до их
+                          <span class="text-mainslider__text3">повышения</span>
+                        </p>
+                      </div>
+                      <div class="content-mainslider__footer">
+                        <div class="content-mainslider__price rub">
+                          от 45 000
+                        </div>
+                        <a href="#" class="content-mainslider__button">
+                          <span>Подробнее</span>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="mainslider__image _ibg">
+                      <img src="./img/03.jpg" alt="" />
+                    </div>
+                  </div>
+                  <div class="mainslider__slide swiper-slide">
+                    <div class="mainslider__content content-mainslider">
+                      <div class="content-mainslider__title">
+                        <span>Мега</span>Распродажа
+                      </div>
+                      <div class="content-mainslider__text text-mainslider">
+                        <p>
+                          <span class="text-mainslider__text1"
+                            >Успей купить</span
+                          >
+                          тренажеры
+                        </p>
+                        <p>
+                          <span class="text-mainslider__text2"
+                            >по старой цене</span
+                          >
+                        </p>
+                        <p>
+                          до их
+                          <span class="text-mainslider__text3">повышения</span>
+                        </p>
+                      </div>
+                      <div class="content-mainslider__footer">
+                        <div class="content-mainslider__price rub">
+                          от 45 000
+                        </div>
+                        <a href="#" class="content-mainslider__button">
+                          <span>Подробнее</span>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="mainslider__image _ibg">
+                      <img src="./img/04.jpg" alt="" />
+                    </div>
+                  </div>
+                  <div class="mainslider__slide swiper-slide">
+                    <div class="mainslider__content content-mainslider">
+                      <div class="content-mainslider__title">
+                        <span>Мега</span>Распродажа
+                      </div>
+                      <div class="content-mainslider__text text-mainslider">
+                        <p>
+                          <span class="text-mainslider__text1"
+                            >Успей купить</span
+                          >
+                          тренажеры
+                        </p>
+                        <p>
+                          <span class="text-mainslider__text2"
+                            >по старой цене</span
+                          >
+                        </p>
+                        <p>
+                          до их
+                          <span class="text-mainslider__text3">повышения</span>
+                        </p>
+                      </div>
+                      <div class="content-mainslider__footer">
+                        <div class="content-mainslider__price rub">
+                          от 45 000
+                        </div>
+                        <a href="#" class="content-mainslider__button">
+                          <span>Подробнее</span>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="mainslider__image _ibg">
+                      <img src="./img/05.jpg" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="mainslider__dots"></div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
       @@include("_footer.html")
     </div>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
     <!-- <script src="https://maps.google.com/maps/api/js?sensor=false&amp;key="></script> -->
     <script src="./js/script.min.js"></script>

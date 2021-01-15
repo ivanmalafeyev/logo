@@ -1,7 +1,9 @@
 @@include("webp.js");
 @@include("ibg.js");
+@@include("popup.js");
 @@include("forms.js");
 @@include("responsive.js");
+@@include("my_swiper.js");
 
 const menuHeader = document.querySelector(".header");
 const mainBlock = document.querySelector(".mainblock");
@@ -81,16 +83,30 @@ let scrolled = false;
 //   }
 // });
 
-const menuParents = document.querySelectorAll(".menu-page__parent");
-
-[].forEach.call(menuParents, (menuParent) => {
-  menuParent.addEventListener("mouseenter", (e) => {
-    menuParent.classList.add("_active");
+if (isMobile.any()) {
+  const menuParentsLinks = document.querySelectorAll(".menu-page__parent a");
+  [].forEach.call(menuParentsLinks, (menuParentLink) => {
+    menuParentLink.addEventListener("click", (e) => {
+      menuParentLink.parentElement.classList.toggle("_active");
+      _slideToggle(
+        menuParentLink.parentElement.querySelector(".submenu-page__item"),
+        menuParentLink,
+        300
+      );
+      e.preventDefault();
+    });
   });
-  menuParent.addEventListener("mouseleave", (e) => {
-    menuParent.classList.remove("_active");
+} else {
+  const menuParents = document.querySelectorAll(".menu-page__parent");
+  [].forEach.call(menuParents, (menuParent) => {
+    menuParent.addEventListener("mouseenter", (e) => {
+      menuParent.classList.add("_active");
+    });
+    menuParent.addEventListener("mouseleave", (e) => {
+      menuParent.classList.remove("_active");
+    });
   });
-});
+}
 
 const sideBurger = document.querySelector(".menu-page__burger");
 const sideBody = document.querySelector(".menu-page__body");
@@ -98,7 +114,7 @@ const sideBody = document.querySelector(".menu-page__body");
 if (sideBurger) {
   sideBurger.addEventListener("click", (e) => {
     sideBurger.classList.toggle("_active");
-    _slideToggle(sideBody);
+    _slideToggle(sideBody, sideBurger);
   });
 }
 
@@ -106,10 +122,35 @@ const searchTitle = document.querySelector(".search-page__title");
 const categoriesSearch = document.querySelector(".categories-search");
 searchTitle.addEventListener("click", (e) => {
   searchTitle.classList.toggle("_active");
-  _slideToggle(categoriesSearch);
+  _slideToggle(categoriesSearch, searchTitle);
 });
 
-const _slideUp = (target, duration = 500) => {
+const checkboxCategories = document.querySelectorAll(
+  ".categories-search__checkbox"
+);
+const searchQuantity = document.querySelector(".search-page__quantity");
+[].forEach.call(checkboxCategories, (checkboxCategory) => {
+  checkboxCategory.addEventListener("change", (e) => {
+    checkboxCategory.classList.toggle("_active");
+    const checkboxActiveCategories = document.querySelectorAll(
+      ".categories-search__checkbox._active"
+    );
+    if (checkboxActiveCategories.length > 0) {
+      searchTitle.classList.add("_categories");
+      searchQuantity.innerHTML =
+        searchQuantity.getAttribute("data-text") +
+        " " +
+        checkboxActiveCategories.length;
+    } else {
+      searchTitle.classList.remove("_categories");
+    }
+  });
+});
+
+const _slideUp = (target, pauseTarget, duration = 500) => {
+  if (pauseTarget) {
+    pauseTarget.style.pointerEvents = "none";
+  }
   target.style.transitionProperty = "height, margin, padding";
   target.style.transitionDuration = duration + "ms";
   target.style.height = target.offsetHeight + "px";
@@ -131,10 +172,16 @@ const _slideUp = (target, duration = 500) => {
     target.style.removeProperty("transition-property");
     target.style.removeProperty("transition-duration");
     target.classList.remove("_slide");
+    if (pauseTarget) {
+      pauseTarget.style.pointerEvents = "all";
+    }
   }, duration);
 };
 
-const _slideDown = (target, duration = 500) => {
+const _slideDown = (target, pauseTarget, duration = 500) => {
+  if (pauseTarget) {
+    pauseTarget.style.pointerEvents = "none";
+  }
   target.style.removeProperty("display");
   let display = window.getComputedStyle(target).display;
   if (display === "none") {
@@ -163,16 +210,19 @@ const _slideDown = (target, duration = 500) => {
     target.style.removeProperty("transition-property");
     target.style.removeProperty("transition-duration");
     target.classList.remove("_slide");
+    if (pauseTarget) {
+      pauseTarget.style.pointerEvents = "all";
+    }
   }, duration);
 };
 
-const _slideToggle = (target, duration = 500) => {
+const _slideToggle = (target, pauseTarget, duration = 500) => {
   if (!target.classList.contains("_slide")) {
     target.classList.add("_slide");
     if (window.getComputedStyle(target).display === "none") {
-      return _slideDown(target, duration);
+      return _slideDown(target, pauseTarget, duration);
     } else {
-      return _slideUp(target, duration);
+      return _slideUp(target, pauseTarget, duration);
     }
   }
 };

@@ -4,12 +4,19 @@ h = window.outerHeight;
 
 function resize() {
   // adiptiveHeader("header-menu", "header-top-lang", "header-top");
-  adiptiveHeader("menu__body", "bottom-header__actions", "_c1", 1);
-  adiptiveHeader("menu__body", "info-header__callback", "_c2");
-  adiptiveHeader("contacts-header__item--icon", "info-header__cart", "_c3");
+  adiptiveHeader(640, "menu__body", "bottom-header__actions", "_c1", 1);
+  adiptiveHeader(640, "menu__body", "info-header__callback", "_c2");
+  adiptiveHeader(
+    640,
+    "contacts-header__item--icon",
+    "info-header__cart",
+    "_c3"
+  );
+  adiptiveHeader(979, "page__content", "page__side-content", "page__side");
 }
 
 function adiptiveHeader(
+  treshold,
   burgerMenuClass,
   elementClass,
   returnPointClass,
@@ -18,11 +25,11 @@ function adiptiveHeader(
   let burgerMenu = document.querySelector("." + burgerMenuClass);
   let element = document.querySelector("." + elementClass);
   let returnPoint = document.querySelector("." + returnPointClass);
-  if (w <= 640) {
+  if (w <= treshold) {
     if (!element.classList.contains("done")) {
       element.classList.add("done");
       if (order !== 0) {
-      burgerMenu.prepend(element);
+        burgerMenu.prepend(element);
       } else {
         burgerMenu.append(element);
       }
@@ -35,7 +42,7 @@ function adiptiveHeader(
         if (element.classList.contains(elementClass + "--right")) {
           returnPoint.parentNode.lastChild.previousSibling.prepend(element);
         } else {
-            returnPoint.append(element);
+          returnPoint.append(element);
         }
       }
     }
