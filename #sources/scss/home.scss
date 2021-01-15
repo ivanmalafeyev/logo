@@ -155,3 +155,30 @@
   }
 }
 // =============================================================
+.products-slider {
+  // .products-slider__header
+  &__header {
+    @include flexbox();
+    margin: 0px 0px 30px 0px;
+  }
+
+  // .products-slider__title
+  &__title {
+    flex: 1 1 auto;
+    color: #dadada;
+    font-family: "ush";
+    font-size: 36px;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+  }
+
+  // .products-slider__control
+  &__control {
+  }
+
+  // .products-slider__items
+  &__items {
+  }
+}
+//==============================================================

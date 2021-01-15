@@ -44,6 +44,42 @@ if (document.querySelector(".mainslider")) {
   });
 }
 
+if (document.querySelector(".products-slider")) {
+  const prodSwiper = new Swiper(".products-slider__item", {
+    // Optional parameters
+    // direction: "vertical",
+    // loop: true,
+    autoHeight: true,
+    slidesPerView: 1,
+    speed: 800,
+
+    // If we need pagination
+    // pagination: {
+    //   el: ".mainslider__dots",
+    //   clickable: true,
+    // },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".products-slider__arrow--next",
+      prevEl: ".products-slider__arrow--prev",
+    },
+
+    // And if we need scrollbar
+    // scrollbar: {
+    // el: '.swiper-scrollbar',
+    // },
+    breakpoints: {
+      320: {
+        // autoHeight: true,
+      },
+      768: {
+        // autoHeight: false,
+      },
+    },
+  });
+}
+
 // const myLotsSwiper = new Swiper(".lots__slide", {
 //   // Optional parameters
 //   // direction: "vertical",
