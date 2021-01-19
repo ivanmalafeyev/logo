@@ -32,6 +32,9 @@
     position: relative;
     z-index: 2;
     counter-reset: item;
+    @media (max-width: 640px) {
+      margin: -10px 0px 0px 0px;
+    }
 
     .swiper-pagination-bullet {
       margin: 0px 23px !important;
@@ -45,6 +48,11 @@
       background-repeat: no-repeat;
       background-position: center;
       opacity: 1;
+      @media (max-width: 640px) {
+        margin: 0px 10px !important;
+        width: 40px;
+        height: 40px;
+      }
       &:after {
         opacity: 0;
         @include anim(0.4s, 0s);
@@ -75,6 +83,9 @@
   padding: 20px 35px 60px;
   color: #333333;
   font-size: 14px;
+  @media (max-width: 640px) {
+    padding: 20px 15px 60px;
+  }
 
   // .content-mainslider__title
   &__title {
@@ -86,6 +97,9 @@
     span {
       display: block;
       color: $oc;
+    }
+    @media (max-width: 640px) {
+      font-size: 38px;
     }
   }
 
@@ -158,8 +172,10 @@
 .products-slider {
   // .products-slider__header
   &__header {
-    @include flexbox();
     margin: 0px 0px 30px 0px;
+    @media (min-width: $md3+px) {
+      @include flexbox();
+    }
   }
 
   // .products-slider__title
@@ -171,14 +187,152 @@
     text-align: left;
     text-transform: uppercase;
     letter-spacing: 0.9px;
+    @media (max-width: $md3+px) {
+      margin: 0 0 15px 0;
+    }
   }
 
   // .products-slider__control
   &__control {
+    @include flexboxi();
+    align-items: center;
+  }
+
+  // .products-slider__arrow
+  &__arrow {
+    flex: 0 0 33px;
+    // .products-slider__arrow--prev
+    &--prev {
+    }
+    // .products-slider__arrow--next
+    &--next {
+    }
+  }
+
+  // .products-slider__info
+  &__info {
+    padding: 0px 20px;
+    color: #999999;
+    font-size: 14px;
+    font-weight: 500;
+
+    .swiper-pagination-current {
+      color: #333333;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 0.75px;
+    }
+    .swiper-pagination-total {
+      text-transform: uppercase;
+    }
   }
 
   // .products-slider__items
   &__items {
   }
+}
+
+._arrow {
+  cursor: pointer;
+  width: 33px;
+  height: 29px;
+  background: url("../img/snarr.svg") 0 0 no-repeat;
+  @media (min-width: $md2+px) {
+    &:hover {
+      background: url("../img/sparr.svg") 0 0 no-repeat;
+    }
+  }
+  &--prev {
+    @include rotate(180deg);
+    @media (min-width: $md2+px) {
+      &:hover {
+        @include rotate(0deg);
+      }
+    }
+  }
+  &--next {
+    @media (min-width: $md2+px) {
+      &:hover {
+        @include rotate(180deg);
+      }
+    }
+  }
+}
+//==============================================================
+.brands-slider {
+  border-top: 3px dashed #dadada;
+  border-bottom: 3px dashed #dadada;
+  padding: 25px 0px;
+  // .brands-slider__container
+  &__container {
+    position: relative;
+  }
+
+  // .brands-slider__body
+  &__body {
+    margin: 0px 40px;
+  }
+
+  // .brands-slider__wrapper
+  &__wrapper {
+    align-items: center !important;
+  }
+
+  // .brands-slider__slide
+  &__slide {
+    @include flexbox();
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+    img {
+      @extend %graystyle;
+      max-width: 100%;
+      cursor: pointer;
+      &:hover {
+        @extend %graystyleoff;
+      }
+    }
+  }
+
+  // .brands-slider__arrows
+  &__arrows {
+  }
+
+  // .brands-slider__arrow
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    // @include tr(0, -50%, 0);
+    margin: -15px 0px 0px 0px;
+    // .brands-slider__arrow--prev
+    &--prev {
+      left: 20px;
+      @media (max-width: $md3+px) {
+        left: 10px;
+      }
+    }
+
+    // .brands-slider__arrow--next
+    &--next {
+      right: 20px;
+      @media (max-width: $md3+px) {
+        right: 10px;
+      }
+    }
+  }
+}
+//==============================================================
+%graystyle {
+  @include anim(0.3s, 0s);
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+  -moz-filter: grayscale(1);
+  -o-filter: grayscale(1);
+}
+%graystyleoff {
+  filter: grayscale(0);
+  -webkit-filter: grayscale(0);
+  -moz-filter: grayscale(0);
+  -o-filter: grayscale(0);
 }
 //==============================================================

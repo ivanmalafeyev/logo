@@ -54,10 +54,11 @@ if (document.querySelector(".products-slider")) {
     speed: 800,
 
     // If we need pagination
-    // pagination: {
-    //   el: ".mainslider__dots",
-    //   clickable: true,
-    // },
+    pagination: {
+      el: ".products-slider__info",
+      type: "fraction",
+      // clickable: true,
+    },
 
     // Navigation arrows
     navigation: {
@@ -75,6 +76,53 @@ if (document.querySelector(".products-slider")) {
       },
       768: {
         // autoHeight: false,
+      },
+    },
+  });
+}
+
+if (document.querySelector(".brands-slider")) {
+  const brandsSwiper = new Swiper(".brands-slider__body", {
+    // Optional parameters
+    // direction: "vertical",
+    loop: true,
+    autoHeight: true,
+    slidesPerView: 5,
+    speed: 800,
+
+    // If we need pagination
+    // pagination: {
+    //   el: ".products-slider__info",
+    //   type: "fraction",
+    // clickable: true,
+    // },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".brands-slider__arrow--next",
+      prevEl: ".brands-slider__arrow--prev",
+    },
+
+    // And if we need scrollbar
+    // scrollbar: {
+    // el: '.swiper-scrollbar',
+    // },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        autoHeight: true,
+      },
+      480: {
+        slidesPerView: 2,
+      },
+      600: {
+        slidesPerView: 3,
+      },
+      768: {
+        slidesPerView: 4,
+      },
+      979: {
+        slidesPerView: 5,
       },
     },
   });

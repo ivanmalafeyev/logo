@@ -29,7 +29,7 @@ const isMobile = {
 //Set touch mode or mouse mode
 if (isMobile.any()) {
   document.body.classList.add("_touch");
-  const arrows = document.querySelectorAll("._arrow");
+  const arrows = document.querySelectorAll("._menu-arrow");
   [].forEach.call(arrows, (e) => {
     const thisLink = e.previousElementSibling;
     const subMenu = e.nextElementSibling;
