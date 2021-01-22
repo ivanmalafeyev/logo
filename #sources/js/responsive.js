@@ -25,24 +25,26 @@ function adiptiveHeader(
   let burgerMenu = document.querySelector("." + burgerMenuClass);
   let element = document.querySelector("." + elementClass);
   let returnPoint = document.querySelector("." + returnPointClass);
-  if (w <= treshold) {
-    if (!element.classList.contains("done")) {
-      element.classList.add("done");
-      if (order !== 0) {
-        burgerMenu.prepend(element);
-      } else {
-        burgerMenu.append(element);
-      }
-    }
-  } else {
-    element = burgerMenu.querySelector("." + elementClass);
-    if (element) {
-      if (element.classList.contains("done")) {
-        element.classList.remove("done");
-        if (element.classList.contains(elementClass + "--right")) {
-          returnPoint.parentNode.lastChild.previousSibling.prepend(element);
+  if (burgerMenu && element && returnPoint) {
+    if (w <= treshold) {
+      if (!element.classList.contains("done")) {
+        element.classList.add("done");
+        if (order !== 0) {
+          burgerMenu.prepend(element);
         } else {
-          returnPoint.append(element);
+          burgerMenu.append(element);
+        }
+      }
+    } else {
+      element = burgerMenu.querySelector("." + elementClass);
+      if (element) {
+        if (element.classList.contains("done")) {
+          element.classList.remove("done");
+          if (element.classList.contains(elementClass + "--right")) {
+            returnPoint.parentNode.lastChild.previousSibling.prepend(element);
+          } else {
+            returnPoint.append(element);
+          }
         }
       }
     }

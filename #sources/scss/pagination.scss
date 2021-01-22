@@ -1,0 +1,77 @@
+.pagination {
+  @include flexbox();
+  align-items: center;
+  // .pagination__arrow
+  &__arrow {
+    width: 29px;
+    height: 25px;
+    &:first-of-type {
+      background: url("../img/slarrg.svg") 0 0 no-repeat;
+      margin: 0px 30px 0px 0px;
+      @media (max-width: 500px) {
+        margin: 0px 10px 0px 0px;
+      }
+      @media (min-width: $md2+px) {
+        &:hover {
+          background: url("../img/sparr.svg") 0 0 no-repeat;
+          background-size: 29px 25px;
+          @include rotate(0deg);
+        }
+      }
+    }
+    &:last-of-type {
+      background: url("../img/slarrg.svg") 0 0 no-repeat;
+      @include rotate(-180deg);
+      margin: 0px 0px 0px 15px;
+      @media (max-width: 500px) {
+        margin: 0px 0px 0px 5px;
+      }
+      @media (min-width: $md2+px) {
+        &:hover {
+          background: url("../img/sparr.svg") 0 0 no-repeat;
+          background-size: 29px 25px;
+        }
+      }
+    }
+  }
+
+  // .pagination__list
+  &__list {
+    @include flexbox();
+    li {
+      flex: 0 0 33px;
+      margin: 0px 3px;
+      @media (max-width: 500px) {
+        flex: 0 0 23px;
+        margin: 0px 2px;
+      }
+    }
+  }
+
+  // .pagination__item
+  &__item {
+    @include flexbox();
+    align-items: center;
+    justify-content: center;
+
+    color: #333333;
+    font-size: 18px;
+    font-weight: 900;
+
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+
+    @media (max-width: 500px) {
+      font-size: 14px;
+      width: 23px;
+      height: 23px;
+    }
+
+    // .item._active
+    &._active {
+      color: white;
+      background-color: #fd8424;
+    }
+  }
+}

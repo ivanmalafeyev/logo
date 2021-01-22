@@ -4,6 +4,8 @@
 @@include("forms.js");
 @@include("responsive.js");
 @@include("my_swiper.js");
+@@include("wNumb.min.js");
+@@include("nouislider.js");
 
 const menuHeader = document.querySelector(".header");
 const mainBlock = document.querySelector(".mainblock");
@@ -83,6 +85,46 @@ let scrolled = false;
 //   }
 // });
 
+const spoilers = document.querySelectorAll("._spoilers");
+if (spoilers) {
+  [].forEach.call(spoilers, (el) => {
+    const spoilerItems = el.querySelectorAll("._spoiler");
+    [].forEach.call(spoilerItems, (spoiler) => {
+      const spoilerBody = spoiler.nextElementSibling;
+      spoiler.addEventListener("click", (e) => {
+        spoiler.classList.toggle("_active");
+        _slideToggle(spoilerBody, spoiler);
+      });
+    });
+  });
+}
+
+const priceSlider = document.querySelector(".price-filter__slider");
+if (priceSlider) {
+  noUiSlider.create(priceSlider, {
+    start: [0, 100000],
+    tooltips: [wNumb({ decimals: 0 }), wNumb({ decimals: 0 })],
+    connect: true,
+    range: {
+      min: [0],
+      max: [200000],
+    },
+  });
+}
+
+const priceFrom = document.querySelector("input#price-from");
+const priceTo = document.querySelector("input#price-to");
+if (priceFrom) {
+  priceFrom.addEventListener("change", (e) => {
+    priceSlider.noUiSlider.set([priceFrom.value, null]);
+  });
+}
+if (priceTo) {
+  priceTo.addEventListener("change", (e) => {
+    priceSlider.noUiSlider.set([null, priceTo.value]);
+  });
+}
+
 if (isMobile.any()) {
   const menuParentsLinks = document.querySelectorAll(".menu-page__parent a");
   [].forEach.call(menuParentsLinks, (menuParentLink) => {
@@ -96,6 +138,13 @@ if (isMobile.any()) {
       e.preventDefault();
     });
   });
+  const filterTitle = document.querySelector(".filter__title");
+  if (filterTitle) {
+    const filterContent = document.querySelector(".filter__content");
+    filterTitle.addEventListener("click", (e) => {
+      _slideToggle(filterContent, filterTitle);
+    });
+  }
 } else {
   const menuParents = document.querySelectorAll(".menu-page__parent");
   [].forEach.call(menuParents, (menuParent) => {

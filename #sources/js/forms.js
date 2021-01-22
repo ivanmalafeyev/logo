@@ -8,23 +8,23 @@ if (inputs) {
     if (dv) {
       e.style.color = `rgba(255, 255, 255, ${PLACEHOLDER_OPACITY})`;
       e.value = dv;
+      e.addEventListener("focus", () => {
+        if (isPlaceholder) {
+          e.value = "";
+          isPlaceholder = false;
+          e.isPlaceholder = isPlaceholder;
+          e.style.color = `rgba(255, 255, 255, 1)`;
+        }
+      });
+      e.addEventListener("blur", () => {
+        if (e.value === "") {
+          e.value = dv;
+          isPlaceholder = true;
+          e.isPlaceholder = isPlaceholder;
+          e.style.color = `rgba(255, 255, 255, ${PLACEHOLDER_OPACITY})`;
+        }
+      });
     }
-    e.addEventListener("focus", () => {
-      if (isPlaceholder) {
-        e.value = "";
-        isPlaceholder = false;
-        e.isPlaceholder = isPlaceholder;
-        e.style.color = `rgba(255, 255, 255, 1)`;
-      }
-    });
-    e.addEventListener("blur", () => {
-      if (e.value === "") {
-        e.value = dv;
-        isPlaceholder = true;
-        e.isPlaceholder = isPlaceholder;
-        e.style.color = `rgba(255, 255, 255, ${PLACEHOLDER_OPACITY})`;
-      }
-    });
   });
 }
 const form = document.querySelector(".form");
@@ -73,4 +73,19 @@ function formRemoveError(input) {
 
 function emailTest(input) {
   return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+}
+
+function digi(str) {
+  return str.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1 ");
+}
+
+function digiAnimate(digiAnimate) {
+  if (digiAnimate.length > 0) {
+    [].forEach.call(digiAnimate, (el) => {
+      const elTo = +el.innerHTML.replace(" ", "");
+      if (!el.classList.contains("_done")) {
+        // digiAnimateValue(el, 0, elTo, 1500);
+      }
+    });
+  }
 }
