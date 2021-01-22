@@ -2477,9 +2477,9 @@ textarea.input {
 .select__value:before {
   content: "";
   display: inline-block;
-  -webkit-transition: all 0.3s ease 0;
-  -o-transition: all 0.3s ease 0;
-  transition: all 0.3s ease 0;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
   width: 11px;
   height: 7px;
   margin: 0px 0px 0px 5px;

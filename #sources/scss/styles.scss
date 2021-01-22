@@ -1334,7 +1334,7 @@ textarea.input {
     &:before {
       content: "";
       display: inline-block;
-      @include anim(0.3s, 0);
+      @include anim(0.3s, 0s);
       width: 11px;
       height: 7px;
       margin: 0px 0px 0px 5px;
