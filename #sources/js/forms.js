@@ -89,3 +89,23 @@ function digiAnimate(digiAnimate) {
     });
   }
 }
+
+const quantityButtons = document.querySelectorAll(".quantity__button");
+if (quantityButtons.length > 0) {
+  [].forEach.call(quantityButtons, (qb) => {
+    qb.addEventListener("click", (e) => {
+      let value = parseInt(
+        qb.closest(".quantity").querySelector("input").value
+      );
+      if (qb.classList.contains("quantity__button--plus")) {
+        value++;
+      } else {
+        value--;
+        if (value < 1) {
+          value = 1;
+        }
+      }
+      qb.closest(".quantity").querySelector("input").value = value;
+    });
+  });
+}

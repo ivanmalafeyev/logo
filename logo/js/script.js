@@ -162,6 +162,28 @@ function digiAnimate(digiAnimate) {
   }
 }
 
+var quantityButtons = document.querySelectorAll(".quantity__button");
+
+if (quantityButtons.length > 0) {
+  [].forEach.call(quantityButtons, function (qb) {
+    qb.addEventListener("click", function (e) {
+      var value = parseInt(qb.closest(".quantity").querySelector("input").value);
+
+      if (qb.classList.contains("quantity__button--plus")) {
+        value++;
+      } else {
+        value--;
+
+        if (value < 1) {
+          value = 1;
+        }
+      }
+
+      qb.closest(".quantity").querySelector("input").value = value;
+    });
+  });
+}
+
 ;
 var w, h;
 w = window.outerWidth;
@@ -370,6 +392,94 @@ if (document.querySelector(".brands-slider")) {
       },
       979: {
         slidesPerView: 5
+      }
+    }
+  });
+}
+
+if (document.querySelector(".images-product")) {
+  var imagesSubSwiper = new Swiper(".images-product__subslider", {
+    // Optional parameters
+    // direction: "vertical",
+    // loop: true,
+    // autoHeight: true,
+    slidesPerView: 4,
+    speed: 800,
+    // If we need pagination
+    // pagination: {
+    //   el: ".products-slider__info",
+    //   type: "fraction",
+    // clickable: true,
+    // },
+    // Navigation arrows
+    // navigation: {
+    //   nextEl: ".brands-slider__arrow--next",
+    //   prevEl: ".brands-slider__arrow--prev",
+    // },
+    // And if we need scrollbar
+    // scrollbar: {
+    // el: '.swiper-scrollbar',
+    // },
+    breakpoints: {
+      320: {
+        slidesPerView: 1 // autoHeight: true,
+
+      },
+      480: {
+        slidesPerView: 1
+      },
+      600: {
+        slidesPerView: 1
+      },
+      768: {
+        slidesPerView: 1
+      },
+      979: {
+        slidesPerView: 4
+      }
+    }
+  });
+  var imagesMainSwiper = new Swiper(".images-product__mainslider", {
+    // Optional parameters
+    // direction: "vertical",
+    // loop: true,
+    // autoHeight: true,
+    slidesPerView: 1,
+    speed: 800,
+    thumbs: {
+      swiper: imagesSubSwiper
+    },
+    // If we need pagination
+    // pagination: {
+    //   el: ".products-slider__info",
+    //   type: "fraction",
+    // clickable: true,
+    // },
+    // Navigation arrows
+    // navigation: {
+    //   nextEl: ".brands-slider__arrow--next",
+    //   prevEl: ".brands-slider__arrow--prev",
+    // },
+    // And if we need scrollbar
+    // scrollbar: {
+    // el: '.swiper-scrollbar',
+    // },
+    breakpoints: {
+      320: {
+        slidesPerView: 1 // autoHeight: true,
+
+      },
+      480: {
+        slidesPerView: 1
+      },
+      600: {
+        slidesPerView: 1
+      },
+      768: {
+        slidesPerView: 1
+      },
+      979: {
+        slidesPerView: 1
       }
     }
   });

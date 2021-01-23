@@ -27,6 +27,7 @@ $bc: #1ab9ce;
 
 @import "fonts.scss";
 @import "null.scss";
+@import "forms.scss";
 
 body {
   &._lock {
@@ -1219,6 +1220,7 @@ body {
 @import "footer.scss";
 //
 @import "catalog.scss";
+@import "product.scss";
 
 .rub {
   &:after {
