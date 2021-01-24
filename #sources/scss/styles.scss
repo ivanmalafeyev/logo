@@ -1443,6 +1443,27 @@ textarea.input {
   }
 }
 
+// ._tabs
+._tabs {
+}
+
+// ._tabs-item
+._tabs-item {
+  cursor: pointer;
+  &._active {
+    cursor: default;
+  }
+}
+
+// ._tabs-block
+._tabs-block {
+  display: none;
+  // ._active
+  &._active {
+    display: block;
+  }
+}
+
 // Slick Slider start
 .slick-slider {
   position: relative;

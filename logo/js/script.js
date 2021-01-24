@@ -3219,6 +3219,38 @@ var scrolled = false; // first fullscreen parallax effect
 //     });
 //   }
 // });
+// TABS -------------------------------------------------------
+
+var allTabs = document.querySelectorAll("._tabs");
+
+if (allTabs) {
+  [].forEach.call(allTabs, function (tab) {
+    var tabItems = tab.querySelectorAll("._tabs-item");
+    Array.prototype.forEach.call(tabItems, function (ti) {
+      ti.addEventListener("click", function (e) {
+        if (!ti.classList.contains("_active")) {
+          Array.prototype.forEach.call(tabItems, function (t) {
+            t.classList.remove("_active");
+          });
+          ti.classList.add("_active");
+          var index = Array.prototype.indexOf.call(ti.parentElement.children, ti);
+
+          if (!!~index) {
+            var blocks = tab.querySelectorAll("._tabs-block");
+
+            if (blocks) {
+              Array.prototype.forEach.call(blocks, function (block) {
+                block.classList.remove("_active");
+              });
+              blocks[index].classList.add("_active");
+            }
+          }
+        }
+      });
+    });
+  });
+} // END TABS ---------------------------------------------------
+
 
 var spoilers = document.querySelectorAll("._spoilers");
 
