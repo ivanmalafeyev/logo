@@ -404,8 +404,7 @@ if (document.querySelector(".images-product")) {
     // loop: true,
     // autoHeight: true,
     slidesPerView: 4,
-    speed: 800,
-    // If we need pagination
+    speed: 800 // If we need pagination
     // pagination: {
     //   el: ".products-slider__info",
     //   type: "fraction",
@@ -420,24 +419,24 @@ if (document.querySelector(".images-product")) {
     // scrollbar: {
     // el: '.swiper-scrollbar',
     // },
-    breakpoints: {
-      320: {
-        slidesPerView: 1 // autoHeight: true,
+    // breakpoints: {
+    //   320: {
+    //     slidesPerView: 1,
+    //   },
+    //   480: {
+    //     slidesPerView: 1,
+    //   },
+    //   600: {
+    //     slidesPerView: 1,
+    //   },
+    //   768: {
+    //     slidesPerView: 1,
+    //   },
+    //   979: {
+    //     slidesPerView: 4,
+    //   },
+    // },
 
-      },
-      480: {
-        slidesPerView: 1
-      },
-      600: {
-        slidesPerView: 1
-      },
-      768: {
-        slidesPerView: 1
-      },
-      979: {
-        slidesPerView: 4
-      }
-    }
   });
   var imagesMainSwiper = new Swiper(".images-product__mainslider", {
     // Optional parameters

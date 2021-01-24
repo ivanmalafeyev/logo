@@ -154,24 +154,23 @@ if (document.querySelector(".images-product")) {
     // scrollbar: {
     // el: '.swiper-scrollbar',
     // },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        // autoHeight: true,
-      },
-      480: {
-        slidesPerView: 1,
-      },
-      600: {
-        slidesPerView: 1,
-      },
-      768: {
-        slidesPerView: 1,
-      },
-      979: {
-        slidesPerView: 4,
-      },
-    },
+    // breakpoints: {
+    //   320: {
+    //     slidesPerView: 1,
+    //   },
+    //   480: {
+    //     slidesPerView: 1,
+    //   },
+    //   600: {
+    //     slidesPerView: 1,
+    //   },
+    //   768: {
+    //     slidesPerView: 1,
+    //   },
+    //   979: {
+    //     slidesPerView: 4,
+    //   },
+    // },
   });
 
   const imagesMainSwiper = new Swiper(".images-product__mainslider", {

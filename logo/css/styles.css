@@ -2429,27 +2429,18 @@ body._lock {
 }
 
 .product__content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 0;
   margin: 0px 0px 20px 0px;
 }
 
 .product__images {
   min-width: 0;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 42.3%;
-          flex: 0 0 42.3%;
-  max-width: 42.3%;
-  margin: 0px 0px 15px 0px;
+  margin: 0px 0px 30px 0px;
 }
 
 .product__body {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  padding: 0px 0px 0px 30px;
   margin: 0px 0px 15px 0px;
 }
 
@@ -2520,7 +2511,7 @@ body._lock {
 
 .images-product__subimage {
   position: relative;
-  height: 68px;
+  padding: 0px 0px 82% 0px;
   border: 1px solid #e4e4e4;
   -webkit-transition: all 0.5s ease 0s;
   -o-transition: all 0.5s ease 0s;
@@ -2601,6 +2592,8 @@ body._lock {
   display: -ms-flexbox;
   display: flex;
   font-size: 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -2673,6 +2666,9 @@ body._lock {
   display: -ms-flexbox;
   display: flex;
   font-size: 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -3080,6 +3076,27 @@ textarea.input {
   }
 }
 
+@media (min-width: 700px) {
+  .product__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 0;
+  }
+
+  .product__images {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 330px;
+            flex: 0 0 330px;
+    max-width: 330px;
+    margin: 0px 0px 15px 0px;
+  }
+
+  .product__body {
+    padding: 0px 0px 0px 30px;
+  }
+}
+
 @media (min-width: 768px) {
   .top-header__column--logo {
     -webkit-box-flex: 0;
@@ -3348,6 +3365,13 @@ textarea.input {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+
+  .product__images {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 360px;
+            flex: 0 0 360px;
+    max-width: 360px;
+  }
 }
 
 @media (max-width: 1192px) {
@@ -3391,6 +3415,16 @@ textarea.input {
 
   .text-block__image {
     display: none;
+  }
+
+  .actions-product__column:last-child {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
+
+  .actions-product__cart {
+    margin: 20px 0 0 0;
   }
 
   .slick-slider .slick-dots {
