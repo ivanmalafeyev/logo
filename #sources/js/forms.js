@@ -27,7 +27,7 @@ if (inputs) {
     }
   });
 }
-const form = document.querySelector(".form");
+const form = document.querySelector("._form");
 if (form) {
   form.addEventListener("submit", (e) => {
     if (formValidate(form) === 0) {
@@ -40,7 +40,7 @@ if (form) {
 
 function formValidate() {
   let error = 0;
-  const formReq = document.querySelectorAll(".req");
+  const formReq = document.querySelectorAll("._req");
   [].forEach.call(formReq, (e) => {
     formRemoveError(e);
     if (e.classList.contains("email")) {

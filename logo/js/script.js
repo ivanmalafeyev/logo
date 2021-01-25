@@ -98,7 +98,7 @@ if (inputs) {
   });
 }
 
-var form = document.querySelector(".form");
+var form = document.querySelector("._form");
 
 if (form) {
   form.addEventListener("submit", function (e) {
@@ -111,7 +111,7 @@ if (form) {
 
 function formValidate() {
   var error = 0;
-  var formReq = document.querySelectorAll(".req");
+  var formReq = document.querySelectorAll("._req");
   [].forEach.call(formReq, function (e) {
     formRemoveError(e);
 
