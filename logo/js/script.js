@@ -66,8 +66,8 @@ if (isMobile.any()) {
 }
 
 ;
-var errClassName = "._error";
-var activeClassName = "._active";
+var errClassName = "_error";
+var activeClassName = "_active";
 var PLACEHOLDER_OPACITY = 0.5;
 var inputs = document.querySelectorAll(".input");
 

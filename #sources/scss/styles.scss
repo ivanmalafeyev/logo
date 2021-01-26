@@ -1300,12 +1300,8 @@ textarea.input {
 .select {
   position: relative;
   &._active {
-    .select__item {
-      .select__value {
-        &:before {
-          @include rotate(-180deg);
-        }
-      }
+    .select__value::before {
+      @include rotate(-180deg);
     }
   }
 

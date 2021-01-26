@@ -1,5 +1,5 @@
-const errClassName = "._error";
-const activeClassName = "._active";
+const errClassName = "_error";
+const activeClassName = "_active";
 
 const PLACEHOLDER_OPACITY = 0.5;
 const inputs = document.querySelectorAll(".input");
