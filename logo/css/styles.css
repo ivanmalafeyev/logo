@@ -3643,9 +3643,9 @@ textarea.input {
     transform: translate3d(0, 0, 0);
   }
 
-  .item-product:hover .item-product__description,
-  .item-product:hover .item-product__name,
-  .item-product:hover .item-product__footer {
+  .item-product:hover .item-product__hover + .item-product__description,
+  .item-product:hover .item-product__hover + .item-product__name,
+  .item-product:hover .item-product__hover + .item-product__footer {
     opacity: 0;
   }
 

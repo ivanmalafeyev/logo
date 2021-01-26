@@ -733,8 +733,8 @@ body {
       .item-product__hover {
         @include tr(0, 0, 0);
       }
-      .item-product__description,
-      .item-product__footer {
+      .item-product__hover + .item-product__description,
+      .item-product__hover + .item-product__footer {
         opacity: 0;
       }
     }
