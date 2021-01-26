@@ -136,6 +136,7 @@ const viewPass = document.querySelectorAll(".form_viewpass");
   });
 });
 
+// Select
 const selects = document.getElementsByTagName("select");
 if (selects.length > 0) {
   selectsInit();
@@ -143,11 +144,11 @@ if (selects.length > 0) {
 
 function selectsInit() {
   [].forEach.call(selects, (select) => {
-    selectsInit(select);
+    selectInit(select);
   });
 
   document.addEventListener("click", (e) => {
-    selectsClose();
+    selectsClose(e);
   });
   document.addEventListener("keydown", (e) => {
     if (e.which == 27) {
@@ -160,9 +161,9 @@ function selectsClose(e) {
   const selects = document.querySelectorAll(".select");
   if (!e.target.closest(".select")) {
     [].forEach.call(selects, (select) => {
-      const selectBodyOptions = select.querySelector(".select_options");
+      const selectBodyOptions = select.querySelector(".select__options");
       select.classList.remove(activeClassName);
-      slideUp(selectBodyOptions, 100);
+      _slideUp(selectBodyOptions, null, 100);
     });
   }
 }
@@ -226,20 +227,20 @@ function selectItem(select) {
 function selectActions(original, select) {
   const selectItem = select.querySelector(".select__item");
   const selectBodyOptions = select.querySelector(".select__options");
-  const selectOptions = select.querySelector(".select__option");
+  const selectOptions = select.querySelectorAll(".select__option");
   const selectType = original.getAttribute("data-type");
   const selectInput = select.querySelector(".select__input");
 
   selectItem.addEventListener("click", () => {
     const selects = document.querySelectorAll(".select");
     [].forEach.call(selects, (select) => {
-      const selectBodyOptions = select.querySelector(".select_options");
+      const selectBodyOptions = select.querySelector(".select__options");
       if (select != selectItem.closest(".select")) {
         select.classList.remove(activeClassName);
-        slideUp(selectBodyOptions, 100);
+        _slideUp(selectBodyOptions, null, 100);
       }
     });
-    slideLeggle(selectBodyOptions, 100);
+    _slideToggle(selectBodyOptions, null, 100);
     select.classList.toggle(activeClassName);
   });
 
@@ -318,6 +319,7 @@ function selectsUpdateAll() {
     });
   }
 }
+// Select end
 
 // Placeholders
 let inputs = document.querySelectorAll(

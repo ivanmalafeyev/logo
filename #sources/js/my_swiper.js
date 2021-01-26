@@ -46,9 +46,6 @@ if (document.querySelector(".mainslider")) {
 
 if (document.querySelector(".products-slider")) {
   const prodSwiper = new Swiper(".products-slider__item", {
-    // Optional parameters
-    // direction: "vertical",
-    // loop: true,
     autoHeight: true,
     slidesPerView: 1,
     speed: 800,
@@ -65,37 +62,15 @@ if (document.querySelector(".products-slider")) {
       nextEl: ".products-slider__arrow--next",
       prevEl: ".products-slider__arrow--prev",
     },
-
-    // And if we need scrollbar
-    // scrollbar: {
-    // el: '.swiper-scrollbar',
-    // },
-    breakpoints: {
-      320: {
-        // autoHeight: true,
-      },
-      768: {
-        // autoHeight: false,
-      },
-    },
   });
 }
 
 if (document.querySelector(".brands-slider")) {
   const brandsSwiper = new Swiper(".brands-slider__body", {
-    // Optional parameters
-    // direction: "vertical",
     loop: true,
     autoHeight: true,
     slidesPerView: 5,
     speed: 800,
-
-    // If we need pagination
-    // pagination: {
-    //   el: ".products-slider__info",
-    //   type: "fraction",
-    // clickable: true,
-    // },
 
     // Navigation arrows
     navigation: {
@@ -103,10 +78,6 @@ if (document.querySelector(".brands-slider")) {
       prevEl: ".brands-slider__arrow--prev",
     },
 
-    // And if we need scrollbar
-    // scrollbar: {
-    // el: '.swiper-scrollbar',
-    // },
     breakpoints: {
       320: {
         slidesPerView: 1,
@@ -130,169 +101,15 @@ if (document.querySelector(".brands-slider")) {
 
 if (document.querySelector(".images-product")) {
   const imagesSubSwiper = new Swiper(".images-product__subslider", {
-    // Optional parameters
-    // direction: "vertical",
-    // loop: true,
-    // autoHeight: true,
     slidesPerView: 4,
     speed: 800,
-
-    // If we need pagination
-    // pagination: {
-    //   el: ".products-slider__info",
-    //   type: "fraction",
-    // clickable: true,
-    // },
-
-    // Navigation arrows
-    // navigation: {
-    //   nextEl: ".brands-slider__arrow--next",
-    //   prevEl: ".brands-slider__arrow--prev",
-    // },
-
-    // And if we need scrollbar
-    // scrollbar: {
-    // el: '.swiper-scrollbar',
-    // },
-    // breakpoints: {
-    //   320: {
-    //     slidesPerView: 1,
-    //   },
-    //   480: {
-    //     slidesPerView: 1,
-    //   },
-    //   600: {
-    //     slidesPerView: 1,
-    //   },
-    //   768: {
-    //     slidesPerView: 1,
-    //   },
-    //   979: {
-    //     slidesPerView: 4,
-    //   },
-    // },
   });
 
   const imagesMainSwiper = new Swiper(".images-product__mainslider", {
-    // Optional parameters
-    // direction: "vertical",
-    // loop: true,
-    // autoHeight: true,
     slidesPerView: 1,
     speed: 800,
     thumbs: {
       swiper: imagesSubSwiper,
     },
-
-    // If we need pagination
-    // pagination: {
-    //   el: ".products-slider__info",
-    //   type: "fraction",
-    // clickable: true,
-    // },
-
-    // Navigation arrows
-    // navigation: {
-    //   nextEl: ".brands-slider__arrow--next",
-    //   prevEl: ".brands-slider__arrow--prev",
-    // },
-
-    // And if we need scrollbar
-    // scrollbar: {
-    // el: '.swiper-scrollbar',
-    // },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        // autoHeight: true,
-      },
-      480: {
-        slidesPerView: 1,
-      },
-      600: {
-        slidesPerView: 1,
-      },
-      768: {
-        slidesPerView: 1,
-      },
-      979: {
-        slidesPerView: 1,
-      },
-    },
   });
 }
-
-// const myLotsSwiper = new Swiper(".lots__slide", {
-//   // Optional parameters
-//   // direction: "vertical",
-//   loop: true,
-//   speed: 800,
-//   // autoHeight: false,
-//   // slidesPerView: 1,
-
-//   // If we need pagination
-//   // pagination: {
-//   //   el: '.swiper-pagination',
-//   // },
-
-//   // Navigation arrows
-//   navigation: {
-//     nextEl: ".lots-slider-next",
-//     prevEl: ".lots-slider-prev",
-//   },
-
-//   // And if we need scrollbar
-//   // scrollbar: {
-//   // el: '.swiper-scrollbar',
-//   // },
-//   breakpoints: {
-//     320: {
-//       autoHeight: true,
-//       slidesPerView: 1,
-//     },
-//     500: {
-//       slidesPerView: 2,
-//     },
-//     768: {
-//       autoHeight: false,
-//       slidesPerView: 3,
-//     },
-//     975: {
-//       slidesPerView: 3,
-//     },
-//   },
-// });
-
-// const myQuotesSwiper = new Swiper(".slider-quotes__slider", {
-//   // Optional parameters
-//   // direction: "vertical",
-//   loop: true,
-//   speed: 800,
-//   effect: "fade",
-//   autoHeight: false,
-//   slidesPerView: 1,
-
-//   // If we need pagination
-//   // pagination: {
-//   //   el: '.swiper-pagination',
-//   // },
-
-//   // Navigation arrows
-//   navigation: {
-//     nextEl: ".control-slider-quotes__circle",
-//     // prevEl: ".lots-slider-prev",
-//   },
-
-//   // And if we need scrollbar
-//   // scrollbar: {
-//   // el: '.swiper-scrollbar',
-//   // },
-//   breakpoints: {
-//     320: {
-//       autoHeight: true,
-//     },
-//     650: {
-//       autoHeight: false,
-//     },
-//   },
-// });

@@ -3079,6 +3079,10 @@ body._lock {
 }
 
 .form-checkout__input input {
+  padding: 0px 10px 0px 15px;
+  color: #666666;
+  font-weight: 300;
+  font-size: 14px;
   border-color: #e5e5e5;
   background-color: white;
 }
@@ -3179,6 +3183,12 @@ textarea.input {
   position: relative;
 }
 
+.select._active .select__item .select__value:before {
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
 .select__item {
   position: relative;
   min-width: 166px;
@@ -3238,6 +3248,8 @@ textarea.input {
 }
 
 .select__options {
+  position: relative;
+  z-index: 120;
   color: black;
   display: none;
   position: absolute;
@@ -3257,17 +3269,31 @@ textarea.input {
   cursor: pointer;
   padding: 5px 15px;
   margin: 0px 0px 0px 0px;
+  white-space: nowrap;
 }
 
-.select--show .select__item {
+.select_show .select__item {
   min-width: 0;
   border: 2px solid #f3f3f3;
 }
 
-.select--show .select__value {
+.select_show .select__value {
   color: #999999;
   font-size: 16px;
   font-weight: 900;
+}
+
+.select_checkout .select__item {
+  border: 1px solid #e5e5e5;
+  color: #666666;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.select_checkout .select__value {
+  color: #666666;
+  font-weight: 300;
+  font-size: 14px;
 }
 
 .checkbox {

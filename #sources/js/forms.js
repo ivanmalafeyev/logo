@@ -1,3 +1,6 @@
+const errClassName = "._error";
+const activeClassName = "._active";
+
 const PLACEHOLDER_OPACITY = 0.5;
 const inputs = document.querySelectorAll(".input");
 if (inputs) {
@@ -109,3 +112,188 @@ if (quantityButtons.length > 0) {
     });
   });
 }
+
+// Select
+const selects = document.getElementsByTagName("select");
+if (selects.length > 0) {
+  selectsInit();
+}
+
+function selectsInit() {
+  [].forEach.call(selects, (select) => {
+    selectInit(select);
+  });
+
+  document.addEventListener("click", (e) => {
+    selectsClose(e);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.which == 27) {
+      selectsClose(e);
+    }
+  });
+}
+
+function selectsClose(e) {
+  const selects = document.querySelectorAll(".select");
+  if (!e.target.closest(".select")) {
+    [].forEach.call(selects, (select) => {
+      const selectBodyOptions = select.querySelector(".select__options");
+      select.classList.remove(activeClassName);
+      _slideUp(selectBodyOptions, null, 100);
+    });
+  }
+}
+
+function selectInit(select) {
+  const selectParent = select.parentElement;
+  const selectModifier = select.getAttribute("class");
+  const selectSelectedOption = select.querySelector("option:checked");
+  select.setAttribute("data-default", selectSelectedOption.value);
+  select.style.display = "none";
+
+  selectParent.insertAdjacentHTML(
+    "beforeend",
+    "<div class='select select_" + selectModifier + "'></div>"
+  );
+
+  const newSelect = selectParent.querySelector(".select");
+  newSelect.append(select);
+  selectItem(select);
+}
+
+function selectItem(select) {
+  const selectParent = select.parentElement;
+  const selectItems = selectParent.querySelector(".select__item");
+  const selectOptions = select.querySelectorAll("option");
+  const selectSelectedOption = select.querySelector("option:checked");
+  const selectSelectedText = selectSelectedOption.text;
+  const selectType = select.getAttribute("data_type");
+
+  if (selectItems) {
+    selectItems.remove();
+  }
+
+  let selectTypeContent = "";
+  if (selectType == "input") {
+    selectTypeContent =
+      "<div class='select__value icon-select-arrow'><input autocomplete='off' type='text' name='form[]' value='" +
+      selectSelectedText +
+      "'/></div>";
+  } else {
+    selectTypeContent =
+      "<div class='select__value icon-select-arrow'><span>" +
+      selectSelectedText +
+      "</span></div>";
+  }
+
+  selectParent.insertAdjacentHTML(
+    "beforeend",
+    "<div class='select__item'>" +
+      "<div class='select__title'>" +
+      selectTypeContent +
+      "</div>" +
+      "<div class='select__options'>" +
+      selectGetOptions(selectOptions) +
+      "</div></div></div>"
+  );
+
+  selectActions(select, selectParent);
+}
+
+function selectActions(original, select) {
+  const selectItem = select.querySelector(".select__item");
+  const selectBodyOptions = select.querySelector(".select__options");
+  const selectOptions = select.querySelectorAll(".select__option");
+  const selectType = original.getAttribute("data-type");
+  const selectInput = select.querySelector(".select__input");
+
+  selectItem.addEventListener("click", () => {
+    const selects = document.querySelectorAll(".select");
+    [].forEach.call(selects, (select) => {
+      const selectBodyOptions = select.querySelector(".select__options");
+      if (select != selectItem.closest(".select")) {
+        select.classList.remove(activeClassName);
+        _slideUp(selectBodyOptions, null, 100);
+      }
+    });
+    _slideToggle(selectBodyOptions, null, 100);
+    select.classList.toggle(activeClassName);
+  });
+
+  [].forEach.call(selectOptions, (selectOption) => {
+    const selectOptionValue = selectOption.getAttribute("data-value");
+    const selectOptionText = selectOption.innerHTML;
+
+    if (selectType == "input") {
+      selectInput.addEventListener("keyup", selectSearch);
+    } else {
+      if (selectOption.getAttribute("data-value") == original.value) {
+        selectOption.style.display = "none";
+      }
+    }
+    selectOption.addEventListener("click", () => {
+      [].forEach.call(selectOptions, (el) => {
+        el.style.display = "block";
+      });
+      if (selectType == "input") {
+        selectInput.value = selectOptionText;
+        original.value = selectOptionValue;
+      } else {
+        select.querySelector(".select__value").innerHTML =
+          "<span>" + selectOptionText + "</span>";
+        original.value = selectOptionValue;
+        selectOption.style.display = "none";
+      }
+    });
+  });
+}
+
+function selectGetOptions(selectOptions) {
+  if (selectOptions) {
+    let selectOptionsContent = "";
+    [].forEach.call(selectOptions, (selectOption) => {
+      const selectOptionValue = selectOption.value;
+      if (selectOptionValue) {
+        const selectOptionText = selectOption.text;
+        selectOptionsContent =
+          selectOptionsContent +
+          "<div data-value='" +
+          selectOptionValue +
+          "' class='select__option'>" +
+          selectOptionText +
+          "</div>";
+      }
+    });
+    return selectOptionsContent;
+  }
+}
+
+function selectSearch(e) {
+  const selectBlock = e.target
+    .closest(".select")
+    .querySelector(".select__options");
+  const selectOptions = e.target
+    .closest(".select")
+    .querySelectorAll(".select__option");
+  const selectSearchText = e.target.value.toUpperCase();
+
+  [].forEach.call(selectOptions, (selectOption) => {
+    const selectTxtValue = selectOption.textContent || selectOption.innerText;
+    if (selectTxtValue.toUpperCase().indexOf(selectSearchText) > -1) {
+      selectOption.style.display = "";
+    } else {
+      selectOption.style.display = "none";
+    }
+  });
+}
+
+function selectsUpdateAll() {
+  const selects = document.querySelectorAll("select");
+  if (selects) {
+    [].forEach.call(selects, (select) => {
+      selectItem(select);
+    });
+  }
+}
+// Select end

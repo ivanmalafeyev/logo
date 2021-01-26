@@ -1299,6 +1299,16 @@ textarea.input {
 //SELECT
 .select {
   position: relative;
+  &._active {
+    .select__item {
+      .select__value {
+        &:before {
+          @include rotate(-180deg);
+        }
+      }
+    }
+  }
+
   // .select__item
   &__item {
     position: relative;
@@ -1354,6 +1364,8 @@ textarea.input {
 
   // .select__options
   &__options {
+    position: relative;
+    z-index: 120;
     color: black;
     display: none;
     position: absolute;
@@ -1378,13 +1390,14 @@ textarea.input {
     cursor: pointer;
     padding: 5px 15px;
     margin: 0px 0px 0px 0px;
+    white-space: nowrap;
     @media (min-width: $md2+px) {
       &:hover {
         background: #d9d9d9;
       }
     }
   }
-  &--show {
+  &_show {
     .select__item {
       min-width: 0;
       border: 2px solid #f3f3f3;
@@ -1393,6 +1406,19 @@ textarea.input {
       color: #999999;
       font-size: 16px;
       font-weight: 900;
+    }
+  }
+  &_checkout {
+    .select__item {
+      border: 1px solid #e5e5e5;
+      color: #666666;
+      font-weight: 300;
+      font-size: 14px;
+    }
+    .select__value {
+      color: #666666;
+      font-weight: 300;
+      font-size: 14px;
     }
   }
 }
